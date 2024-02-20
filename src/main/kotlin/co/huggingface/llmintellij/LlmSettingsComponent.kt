@@ -211,7 +211,7 @@ class LlmSettingsComponent {
         val llmLsSubsectionPanel = createSectionPanel("llm-ls", rootPanel)
         lspBinaryPath = TextFieldWithBrowseButton()
         lspBinaryPath.addBrowseFolderListener("Select Path", null, null, descriptor)
-        val lspBinaryPathLabel = JBLabel("Binary path")
+        val lspBinaryPathLabel = JBLabel("Set binary path, or it will be calculated with version")
         llmLsSubsectionPanel.add(lspBinaryPathLabel)
         llmLsSubsectionPanel.add(lspBinaryPath)
         lspVersionLabel = JBLabel("Version")

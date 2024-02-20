@@ -183,7 +183,10 @@ fun downloadAndUnzip(logger: Logger, url: String, binDir: File, binName: String,
 }
 
 fun downloadLlmLs(logger: Logger, binaryPath: String?, version: String): String? {
-    if (binaryPath != null && binaryPath.endsWith(version) && File(binaryPath).exists()) {
+    logger.info("Download called with binary path $binaryPath")
+
+    if (binaryPath != null && File(binaryPath).exists()) {
+        logger.info("Binary $binaryPath already exists. Using this.")
         return binaryPath
     }
 
@@ -199,6 +202,8 @@ fun downloadLlmLs(logger: Logger, binaryPath: String?, version: String): String?
         downloadAndUnzip(logger, url, binDir, binName, fullPath.absolutePath)
         logger.info("Successfully downloaded llm-ls")
     }
+
+    logger.info("Created path for llm executable ${fullPath.absolutePath}")
 
     return fullPath.absolutePath
 }
